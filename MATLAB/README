@@ -1,0 +1,3 @@
+This folder contains all the MATLAB files required to implement our ICIP'16 implementation. 
+The main file is 'processTangoData.m' which requires the user to provide the filename for a data 
+in the dataset folder.
