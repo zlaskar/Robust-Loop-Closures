@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        ParaviewTango {
+            keyAlias 'Tango'
+            keyPassword 'pnnppp'
+            storeFile file('./../keys.jks')
+            storePassword 'pnnppp'
+        }
+    }
+    compileSdkVersion 19
+    buildToolsVersion '23.0.3'
+    defaultConfig {
+        applicationId "com.kitware.tangoproject.paraviewtangorecorder"
+        minSdkVersion 19
+        targetSdkVersion 19
+        signingConfig signingConfigs.ParaviewTango
+        versionName 'Camera'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            debuggable false
+        }
+    }
+    productFlavors {
+    }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+}
+
+def external_lib_prefix = 'libs'
+
+dependencies {
+    compile project(':tangoUtils')
+    compile files('libs/tango_java_lib.jar')
+    compile(name: 'tango-ux-support-library', ext: 'aar')
+    compile(name: 'tango_support_java_lib', ext: 'aar')
+    compile 'com.android.support:support-v4:19.+'
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
+}
+
+repositories{
+    flatDir{
+        dirs external_lib_prefix
+    }
+}

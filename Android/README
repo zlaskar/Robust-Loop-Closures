@@ -1,0 +1,4 @@
+This folder contains the android application files for Google Project Tango tablet. Using this application
+files allows the data capture so the output matches sample datasets in the folder ../datasets/. 
+
+The original software for recording the data can be found here http://kitware.com/blog/home/post/838 and https://github.com/Kitware/ParaViewTangoRecorder. 
